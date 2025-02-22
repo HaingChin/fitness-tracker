@@ -159,5 +159,10 @@ namespace fitness_tracker
             txt_pw.PasswordChar = check_pw.Checked ? '\0' : '•';
             txt_cpw.PasswordChar = check_pw.Checked ? '\0' : '•';
         }
+
+        private void register_form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

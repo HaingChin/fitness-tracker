@@ -46,6 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminService.cs" />
+    <Compile Include="admin_register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin_register.Designer.cs">
+      <DependentUpon>admin_register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin_login.Designer.cs">
+      <DependentUpon>admin_login.cs</DependentUpon>
+    </Compile>
     <Compile Include="set_goals.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,6 +99,12 @@
       <DependentUpon>register_form.cs</DependentUpon>
     </Compile>
     <Compile Include="userService.cs" />
+    <EmbeddedResource Include="admin_register.resx">
+      <DependentUpon>admin_register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_login.resx">
+      <DependentUpon>admin_login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="set_goals.resx">
       <DependentUpon>set_goals.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +181,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\log-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\library-big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

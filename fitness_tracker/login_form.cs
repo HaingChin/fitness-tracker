@@ -63,9 +63,8 @@ namespace fitness_tracker
 
         private void btn_register_Click(object sender, EventArgs e)
         {
-            register_form RegisterForm = new register_form();
-            RegisterForm.Show();
-            this.Hide();
+            new register_form().Show();
+            Hide();
         }
 
         private void check_pw_CheckedChanged(object sender, EventArgs e)

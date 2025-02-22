@@ -16,7 +16,7 @@ namespace fitness_tracker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login_form());
+            Application.Run(new admin_login());
         }
     }
 }
