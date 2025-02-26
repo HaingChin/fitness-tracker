@@ -26,5 +26,20 @@ namespace fitness_tracker
         {
 
         }
+
+        private void panel3_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void main_form_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void admin_activity1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

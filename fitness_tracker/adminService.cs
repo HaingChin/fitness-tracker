@@ -1,76 +1,136 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Data;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace fitness_tracker
 {
     public class AdminService
     {
-        private readonly fitness_treacker_dbTableAdapters.admins_tblTableAdapter dbAdapter;
+        private readonly fitness_treacker_dbTableAdapters.admins_tblTableAdapter adminAdapter;
 
         public AdminService()
         {
-            dbAdapter = new fitness_treacker_dbTableAdapters.admins_tblTableAdapter();
+            adminAdapter = new fitness_treacker_dbTableAdapters.admins_tblTableAdapter();
         }
 
-        // Validate email format
-        public static bool IsValidEmail(string email)
+        // Check if an admin already exists by admin name or email
+
+        public bool IsAdminExists(string admin_name)
         {
-            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(email, pattern);
+            object result = adminAdapter.CheckAdminnameExists(admin_name);
+            return result != null && Convert.ToInt32(result) > 0;
         }
 
-        // Validate phone number (only digits, 7 to 15 characters)
-        public static bool IsValidPhoneNumber(string phone)
+        public bool IsEmailExists(string email)
         {
-            return Regex.IsMatch(phone, @"^\d{7,15}$");
-        }
-
-        // Check if admin email already exists
-        public bool IsAdminEmailExists(string email)
-        {
-            object result = dbAdapter.CheckAdminEmailExists(email);
-            return ConvertToInt(result) > 0;
-        }
-
-        // Generate a new Admin ID in format "admin-001"
-        private string GenerateNewAdminId()
-        {
-            DataTable adminData = dbAdapter.GetData();
-            if (adminData.Rows.Count > 0)
-            {
-                int maxId = adminData.AsEnumerable()
-                                     .Select(row => int.Parse(row.Field<string>("admin_id").Replace("admin-", "")))
-                                     .Max();
-                return $"admin-{(maxId + 1):D3}";
-            }
-            return "admin-001"; // Start from admin-001
+            object result = adminAdapter.CheckEmailExist(email);
+            return result != null && Convert.ToInt32(result) > 0;
         }
 
         // Register a new admin
-        public bool RegisterAdmin(string adminName, string email, string position, string phone, string passport, string password)
+        public void Register(string adminName, string email, string position, string phone, string passport, string password)
         {
             string newAdminId = GenerateNewAdminId();
-            DateTime dateCreated = DateTime.Now;
-
-            try
-            {
-                dbAdapter.Insert(newAdminId, adminName, email, position, phone, passport, password, dateCreated);
-                return true; // Successfully registered
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            string hashedPassword = HashPassword(password);
+            adminAdapter.Insert(newAdminId, adminName, email, position, phone, passport, hashedPassword, DateTime.Now);
         }
 
-        // Safely convert object to int (handles null values)
-        private int ConvertToInt(object obj)
+        // Validate admin login credentials
+        public bool ValidateAdmin(string adminName, string password)
         {
-            return obj != null ? Convert.ToInt32(obj) : 0;
+            DataTable adminDt = adminAdapter.GetDataByAdminname(adminName);
+            return adminDt.Rows.Count > 0 && adminDt.Rows[0]["password"].ToString() == HashPassword(password);
         }
+
+        public string GetAdminIdByUsername(string adminName)
+        {
+            var adminData = adminAdapter.GetDataByAdminname(adminName);
+            if (adminData.Rows.Count > 0)
+            {
+                return adminData.Rows[0]["admin_id"].ToString();
+            }
+            return null;
+        }
+
+
+        // Generate a new admin ID by incrementing the highest existing ID (admin-001, admin-002, etc.)
+        public string GenerateNewAdminId()
+        {
+            DataTable adminDt = adminAdapter.GetData();
+            if (adminDt.Rows.Count > 0)
+            {
+                int maxId = adminDt.AsEnumerable()
+                                   .Select(row => int.Parse(row.Field<string>("admin_id").Replace("admin-", "")))
+                                   .Max();
+                return $"admin-{(maxId + 1):D3}";
+            }
+            return "admin-001";
+        }
+
+        // Securely hash the password using SHA-256
+        private string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
+
+        // Get data by AdminID
+        public Admin GetAdminById(string adminId)
+        {
+            if (string.IsNullOrEmpty(adminId)) return null;
+
+            var adminData = adminAdapter.GetAdminById(adminId);
+            if (adminData.Rows.Count > 0)
+            {
+                var row = adminData.Rows[0];
+                return new Admin
+                {
+                    AdminId = row["admin_id"].ToString(),
+                    AdminName = row["admin_name"].ToString(),
+                    Email = row["email"].ToString(),
+                    Position = row["position"].ToString(),
+                    Phone = row["phone"].ToString(),
+                    Passport = row["passport"].ToString()
+                };
+            }
+            return null;
+        }
+
+        //Update Admin information
+        public void UpdateAdminInfo(string adminId, string name, string email, string position, string phone, string passport)
+        {
+            if (string.IsNullOrEmpty(adminId)) throw new ArgumentNullException(nameof(adminId));
+            adminAdapter.UpdateAdminInfo(name, email, position, phone, passport, adminId);
+        }
+
+        public bool ChangePassword(string adminId, string oldPassword, string newPassword)
+        {
+            if (string.IsNullOrEmpty(adminId)) return false;
+
+            var adminData = adminAdapter.GetAdminById(adminId);
+            if (adminData.Rows.Count > 0)
+            {
+                string storedPassword = adminData.Rows[0]["password"].ToString();
+                string hashedOldPassword = HashPassword(oldPassword);
+
+                if (storedPassword == hashedOldPassword)
+                {
+                    string hashedNewPassword = HashPassword(newPassword);
+                    adminAdapter.UpdatePassword(hashedNewPassword, adminId);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+
     }
 }
 

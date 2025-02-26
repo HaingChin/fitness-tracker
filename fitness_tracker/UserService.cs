@@ -33,14 +33,15 @@ namespace fitness_tracker
         public void Register(string username, string email, string password)
         {
             int newUserId = GenerateNewUserId();
-            userAdapter.Insert(newUserId, username, email, password, DateTime.Now);
+            string hashedPassword = HashPassword(password);
+            userAdapter.Insert(newUserId, username, email, hashedPassword, DateTime.Now);
         }
 
         // Validate username and password against stored credentials
         public bool ValidateUser(string username, string password)
         {
             DataTable userdt = userAdapter.GetDataByUsername(username);
-            return userdt.Rows.Count > 0 && userdt.Rows[0]["passwords"].ToString() == password;
+            return userdt.Rows.Count > 0 && userdt.Rows[0]["passwords"].ToString() == HashPassword(password);
         }
 
         // Generate a new user ID by incrementing the highest existing ID
@@ -48,6 +49,16 @@ namespace fitness_tracker
         {
             DataTable userdt = userAdapter.GetData();
             return userdt.Rows.Count > 0 ? userdt.AsEnumerable().Max(row => row.Field<int>("id")) + 1 : 1;
+        }
+
+        // Securely hash the password using SHA-256
+        private string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
         }
     }
 }

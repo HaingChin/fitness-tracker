@@ -30,29 +30,29 @@ namespace fitness_tracker
         private void InitializeComponent()
         {
             this.lbl_login = new System.Windows.Forms.Label();
-            this.txt_pw = new System.Windows.Forms.TextBox();
+            this.txt_phone = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbl_pw = new System.Windows.Forms.Label();
-            this.txt_username = new System.Windows.Forms.TextBox();
+            this.txt_admin_id = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_username = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_admin_name = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_password = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_cpw = new System.Windows.Forms.TextBox();
+            this.txt_confirm_password = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.check_pw = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_position = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_passport = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_logo = new System.Windows.Forms.Label();
@@ -92,19 +92,17 @@ namespace fitness_tracker
             this.lbl_login.Size = new System.Drawing.Size(210, 38);
             this.lbl_login.TabIndex = 3;
             this.lbl_login.Text = "Admin Register";
-            this.lbl_login.Click += new System.EventHandler(this.lbl_login_Click);
             // 
-            // txt_pw
+            // txt_phone
             // 
-            this.txt_pw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.txt_pw.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_pw.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pw.ForeColor = System.Drawing.Color.White;
-            this.txt_pw.Location = new System.Drawing.Point(101, 288);
-            this.txt_pw.Name = "txt_pw";
-            this.txt_pw.PasswordChar = '*';
-            this.txt_pw.Size = new System.Drawing.Size(189, 20);
-            this.txt_pw.TabIndex = 14;
+            this.txt_phone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.txt_phone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_phone.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_phone.ForeColor = System.Drawing.Color.White;
+            this.txt_phone.Location = new System.Drawing.Point(101, 288);
+            this.txt_phone.Name = "txt_phone";
+            this.txt_phone.Size = new System.Drawing.Size(189, 20);
+            this.txt_phone.TabIndex = 14;
             // 
             // panel3
             // 
@@ -126,16 +124,17 @@ namespace fitness_tracker
             this.lbl_pw.TabIndex = 11;
             this.lbl_pw.Text = "Phone Number";
             // 
-            // txt_username
+            // txt_admin_id
             // 
-            this.txt_username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.txt_username.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_username.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_username.ForeColor = System.Drawing.Color.White;
-            this.txt_username.Location = new System.Drawing.Point(101, 159);
-            this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(189, 20);
-            this.txt_username.TabIndex = 18;
+            this.txt_admin_id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.txt_admin_id.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_admin_id.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_admin_id.ForeColor = System.Drawing.Color.White;
+            this.txt_admin_id.Location = new System.Drawing.Point(101, 159);
+            this.txt_admin_id.Name = "txt_admin_id";
+            this.txt_admin_id.ReadOnly = true;
+            this.txt_admin_id.Size = new System.Drawing.Size(189, 20);
+            this.txt_admin_id.TabIndex = 18;
             // 
             // panel2
             // 
@@ -155,18 +154,17 @@ namespace fitness_tracker
             this.lbl_username.Size = new System.Drawing.Size(88, 25);
             this.lbl_username.TabIndex = 15;
             this.lbl_username.Text = "Admin ID";
-            this.lbl_username.Click += new System.EventHandler(this.lbl_username_Click);
             // 
-            // textBox1
+            // txt_admin_name
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(351, 159);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 20);
-            this.textBox1.TabIndex = 26;
+            this.txt_admin_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.txt_admin_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_admin_name.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_admin_name.ForeColor = System.Drawing.Color.White;
+            this.txt_admin_name.Location = new System.Drawing.Point(351, 159);
+            this.txt_admin_name.Name = "txt_admin_name";
+            this.txt_admin_name.Size = new System.Drawing.Size(189, 20);
+            this.txt_admin_name.TabIndex = 26;
             // 
             // panel1
             // 
@@ -187,17 +185,17 @@ namespace fitness_tracker
             this.label1.TabIndex = 23;
             this.label1.Text = "Admin Name";
             // 
-            // textBox2
+            // txt_password
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(101, 352);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(189, 20);
-            this.textBox2.TabIndex = 22;
+            this.txt_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.txt_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_password.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_password.ForeColor = System.Drawing.Color.White;
+            this.txt_password.Location = new System.Drawing.Point(101, 352);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.PasswordChar = '•';
+            this.txt_password.Size = new System.Drawing.Size(189, 20);
+            this.txt_password.TabIndex = 22;
             // 
             // panel4
             // 
@@ -249,17 +247,17 @@ namespace fitness_tracker
             this.label3.TabIndex = 28;
             this.label3.Text = "Email Address";
             // 
-            // txt_cpw
+            // txt_confirm_password
             // 
-            this.txt_cpw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.txt_cpw.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_cpw.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cpw.ForeColor = System.Drawing.Color.White;
-            this.txt_cpw.Location = new System.Drawing.Point(351, 352);
-            this.txt_cpw.Name = "txt_cpw";
-            this.txt_cpw.PasswordChar = '*';
-            this.txt_cpw.Size = new System.Drawing.Size(189, 20);
-            this.txt_cpw.TabIndex = 36;
+            this.txt_confirm_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.txt_confirm_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_confirm_password.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_confirm_password.ForeColor = System.Drawing.Color.White;
+            this.txt_confirm_password.Location = new System.Drawing.Point(351, 352);
+            this.txt_confirm_password.Name = "txt_confirm_password";
+            this.txt_confirm_password.PasswordChar = '•';
+            this.txt_confirm_password.Size = new System.Drawing.Size(189, 20);
+            this.txt_confirm_password.TabIndex = 36;
             // 
             // panel6
             // 
@@ -280,6 +278,7 @@ namespace fitness_tracker
             this.check_pw.TabIndex = 34;
             this.check_pw.Text = "Show Password";
             this.check_pw.UseVisualStyleBackColor = true;
+            this.check_pw.CheckedChanged += new System.EventHandler(this.check_pw_CheckedChanged);
             // 
             // label4
             // 
@@ -291,18 +290,17 @@ namespace fitness_tracker
             this.label4.Size = new System.Drawing.Size(158, 25);
             this.label4.TabIndex = 32;
             this.label4.Text = "Confirm Password";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox3
+            // txt_position
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(351, 223);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(189, 20);
-            this.textBox3.TabIndex = 40;
+            this.txt_position.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.txt_position.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_position.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_position.ForeColor = System.Drawing.Color.White;
+            this.txt_position.Location = new System.Drawing.Point(351, 223);
+            this.txt_position.Name = "txt_position";
+            this.txt_position.Size = new System.Drawing.Size(189, 20);
+            this.txt_position.TabIndex = 40;
             // 
             // panel7
             // 
@@ -323,16 +321,16 @@ namespace fitness_tracker
             this.label5.TabIndex = 37;
             this.label5.Text = "Position";
             // 
-            // textBox4
+            // txt_passport
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(351, 287);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(189, 20);
-            this.textBox4.TabIndex = 44;
+            this.txt_passport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.txt_passport.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_passport.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_passport.ForeColor = System.Drawing.Color.White;
+            this.txt_passport.Location = new System.Drawing.Point(351, 287);
+            this.txt_passport.Name = "txt_passport";
+            this.txt_passport.Size = new System.Drawing.Size(189, 20);
+            this.txt_passport.TabIndex = 44;
             // 
             // panel8
             // 
@@ -360,7 +358,7 @@ namespace fitness_tracker
             this.lbl_logo.ForeColor = System.Drawing.Color.White;
             this.lbl_logo.Location = new System.Drawing.Point(68, 20);
             this.lbl_logo.Name = "lbl_logo";
-            this.lbl_logo.Size = new System.Drawing.Size(202, 38);
+            this.lbl_logo.Size = new System.Drawing.Size(203, 38);
             this.lbl_logo.TabIndex = 47;
             this.lbl_logo.Text = "Fitness Tracker";
             // 
@@ -391,6 +389,7 @@ namespace fitness_tracker
             this.btn_register_login.TabIndex = 48;
             this.btn_register_login.Text = "Register";
             this.btn_register_login.UseVisualStyleBackColor = false;
+            this.btn_register_login.Click += new System.EventHandler(this.btn_register_login_Click);
             // 
             // link_login
             // 
@@ -516,27 +515,26 @@ namespace fitness_tracker
             this.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logo_img.TabIndex = 1;
             this.logo_img.TabStop = false;
-            this.logo_img.Click += new System.EventHandler(this.logo_img_Click);
             // 
             // admin_register
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(600, 550);
+            this.ClientSize = new System.Drawing.Size(600, 533);
             this.Controls.Add(this.link_login);
             this.Controls.Add(this.lbl_loginback);
             this.Controls.Add(this.btn_register_login);
             this.Controls.Add(this.lbl_logo);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txt_passport);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_position);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txt_cpw);
+            this.Controls.Add(this.txt_confirm_password);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.check_pw);
@@ -545,16 +543,16 @@ namespace fitness_tracker
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txt_username);
+            this.Controls.Add(this.txt_admin_name);
+            this.Controls.Add(this.txt_admin_id);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_username);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.txt_pw);
+            this.Controls.Add(this.txt_password);
+            this.Controls.Add(this.txt_phone);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel3);
@@ -565,10 +563,10 @@ namespace fitness_tracker
             this.Controls.Add(this.lbl_login);
             this.Controls.Add(this.logo_img);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "admin_register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.admin_form_Load);
+            this.Load += new System.EventHandler(this.admin_register_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -589,19 +587,19 @@ namespace fitness_tracker
         private System.Windows.Forms.PictureBox logo_img;
         private System.Windows.Forms.Label lbl_login;
         private System.Windows.Forms.PictureBox exit;
-        private System.Windows.Forms.TextBox txt_pw;
+        private System.Windows.Forms.TextBox txt_phone;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lbl_pw;
-        private System.Windows.Forms.TextBox txt_username;
+        private System.Windows.Forms.TextBox txt_admin_id;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lbl_username;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_admin_name;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
@@ -609,16 +607,16 @@ namespace fitness_tracker
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_cpw;
+        private System.Windows.Forms.TextBox txt_confirm_password;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.CheckBox check_pw;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_position;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_passport;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label6;

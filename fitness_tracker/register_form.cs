@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 
 namespace fitness_tracker
@@ -53,7 +52,7 @@ namespace fitness_tracker
             // Validate input formats
 
             // Validate username (only alphanumeric)
-            if (!Validator.IsValidUsername(username))
+            if (!InputValidator.IsValidUsername(username))
             {
                 MessageBox.Show("Username must be alphanumeric!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_username.Focus();
@@ -61,7 +60,7 @@ namespace fitness_tracker
             }
 
             // Validate email
-            if (!Validator.IsValidEmail(email))
+            if (!InputValidator.IsValidEmail(email))
             {
                 MessageBox.Show("Invalid email format!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_email.Focus();
@@ -69,7 +68,7 @@ namespace fitness_tracker
             }
 
             // Validate password
-            if (!Validator.IsValidPassword(passwords))
+            if (!InputValidator.IsValidPassword(passwords))
             {
                 MessageBox.Show("Password must be at least 12 characters with 1 uppercase & 1 lowercase letter!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_pw.Focus();
@@ -139,18 +138,6 @@ namespace fitness_tracker
             txt_email.Clear();
             txt_pw.Clear();
             txt_cpw.Clear();
-        }
-
-        public static class Validator
-        {
-            // Username must be alphanumeric
-            public static bool IsValidUsername(string username) => Regex.IsMatch(username, "^[a-zA-Z0-9]+$");
-
-            // Basic email validation pattern
-            public static bool IsValidEmail(string email) => Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
-
-            // Password must be at least 12 characters with uppercase and lowercase letters
-            public static bool IsValidPassword(string password) => password.Length >= 12 && Regex.IsMatch(password, "[A-Z]") && Regex.IsMatch(password, "[a-z]");
         }
 
 

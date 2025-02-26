@@ -46,7 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="activityService.cs" />
+    <Compile Include="Admin.cs" />
     <Compile Include="adminService.cs" />
+    <Compile Include="admin_activity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="admin_activity.Designer.cs">
+      <DependentUpon>admin_activity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin_info_form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="admin_info_form.Designer.cs">
+      <DependentUpon>admin_info_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin_mainform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin_mainform.Designer.cs">
+      <DependentUpon>admin_mainform.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin_register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +79,7 @@
     <Compile Include="admin_login.Designer.cs">
       <DependentUpon>admin_login.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputValidator.cs" />
     <Compile Include="set_goals.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,6 +120,15 @@
       <DependentUpon>register_form.cs</DependentUpon>
     </Compile>
     <Compile Include="userService.cs" />
+    <EmbeddedResource Include="admin_activity.resx">
+      <DependentUpon>admin_activity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_info_form.resx">
+      <DependentUpon>admin_info_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_mainform.resx">
+      <DependentUpon>admin_mainform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admin_register.resx">
       <DependentUpon>admin_register.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +223,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-user-round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
